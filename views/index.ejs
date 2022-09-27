@@ -1,0 +1,55 @@
+<%- include('partials/header') -%>
+
+    <body>
+        <%- include('partials/navbar') -%>
+
+
+            <div class="cotainer mt-5">
+                <div class="row">
+                    <div class="col-9 mx-auto">
+                        <section>
+                            <%- include('carousel') -%>
+                        </section>
+
+                        <section>
+                            <div class="row">
+                                <% tasks.forEach((task)=> { %>
+                                    <div class="col mt-3">
+                                        <div class="card">
+                                            <img src="/img/card03.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <%= task.titulo %>
+                                                </h5>
+                                                <p class="card-text">
+                                                    <%= task.descripcion %>
+                                                </p>
+                                                <button class="btn btn-md btn-warning">
+                                                    Editar
+                                                </button>
+                                                <button 
+                                                type ="submit"
+                                                class="btn btn-md btn-danger"
+                                                value="<%= task._id%>"
+                                                onclick="deleteTask()"
+                                                >
+                                                    Eliminar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <script src="/js/bootstrap.js"></script>
+            <script src="/js/landing.js"></script>
+    </body>
+    <%- include('partials/footer') -%>
